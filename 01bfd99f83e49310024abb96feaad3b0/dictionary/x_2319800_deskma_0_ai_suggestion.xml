@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="533a8e47af784ad48e44ba59ab741231" label="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" type="collection">
+        <element label="Confidence Score" name="confidence_score" type="decimal"/>
+        <element default="pending" label="Status" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pending" sequence="1" value="pending"/>
+                <element inactive_on_update="false" label="Rejected" sequence="3" value="rejected"/>
+                <element inactive_on_update="false" label="Accepted" sequence="2" value="accepted"/>
+            </choice>
+        </element>
+        <element label="Incident" mandatory="true" name="incident" reference="incident" type="reference"/>
+        <element label="Suggested Assignment Group" name="suggested_assignment_group" reference="sys_user_group" type="reference"/>
+        <element label="Knowledge Article" name="knowledge_article" reference="kb_knowledge" type="reference"/>
+        <element label="Processed At" name="processed_at" type="glide_date_time"/>
+        <element label="Suggested Category" max_length="255" name="suggested_category" type="string"/>
+        <element label="Suggestion Type" name="suggestion_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Assignment Group" sequence="2" value="assignment_group"/>
+                <element inactive_on_update="false" label="Knowledge Article" sequence="4" value="knowledge_article"/>
+                <element inactive_on_update="false" label="Category" sequence="1" value="category"/>
+                <element inactive_on_update="false" label="Resolution Notes" sequence="3" value="resolution_notes"/>
+            </choice>
+        </element>
+        <element label="Agent Feedback" max_length="1000" name="agent_feedback" type="string"/>
+        <element label="Suggested Resolution Notes" max_length="4000" name="suggested_resolution_notes" type="multi_two_lines"/>
+        <index name="index">
+            <element name="incident"/>
+        </index>
+        <index name="index2">
+            <element name="knowledge_article"/>
+        </index>
+        <index name="index3">
+            <element name="suggested_assignment_group"/>
+        </index>
+    </element>
+</database>

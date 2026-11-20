@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="AI Suggestion" section_id="ddff105948ae4194a264da0829208160" sys_domain="global" table="x_2319800_deskma_0_ai_suggestion" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>16f92361059944f9aba0161388126c26</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>incident</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>0dbca5e31e6944e1a86660cc2b3020ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>suggestion_type</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>a4677a05540d42dc90d991ba3c0638cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>status</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>be9594ea9bba42bbb2e5016d03f36a63</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>confidence_score</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>096075b591084df4b178f0b90228535e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>35ea252e9cf44fd7a97ea3ef37c516af</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>suggested_category</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>e690cd2ae11540b58441716d0889978f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>suggested_assignment_group</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>d2da1b9a10ce46629579e867047139ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>knowledge_article</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>d6a3aa10ae794bc2bfacf852a3477ee8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>processed_at</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>8b9a2324ce3d4862a43190b418ade611</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>10</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>45eb8f87d98a477094680db7279d8e5a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>suggested_resolution_notes</element>
+            <position>11</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>80c7724e932c44dd867362296a2d9b4f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>agent_feedback</element>
+            <position>12</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>e932232877174f7ead553c32c497ae16</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Suggestion" display_value="AI Suggestion" name="x_2319800_deskma_0_ai_suggestion" sys_domain="global" view="Default view">ddff105948ae4194a264da0829208160</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>AI Suggestion</caption>
+            <header>false</header>
+            <name>x_2319800_deskma_0_ai_suggestion</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:26:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ddff105948ae4194a264da0829208160</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_2319800_deskma_0_ai_suggestion</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+            <sys_update_name>sys_ui_section_ddff105948ae4194a264da0829208160</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:26:50</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

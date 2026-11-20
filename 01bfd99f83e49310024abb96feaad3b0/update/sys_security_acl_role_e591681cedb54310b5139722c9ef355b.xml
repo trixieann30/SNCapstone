@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 10:26:50</sys_created_on>
+        <sys_id>e591681cedb54310b5139722c9ef355b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2319800_deskma_0_ai_suggestion.x_2319800_deskma_0.deskmate_admin</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_security_acl display_value="x_2319800_deskma_0_ai_suggestion">e6c26e86913d4d2e9cc51d2170e3cccf</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e591681cedb54310b5139722c9ef355b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 10:26:50</sys_updated_on>
+        <sys_user_role display_value="x_2319800_deskma_0.deskmate_admin" name="x_2319800_deskma_0.deskmate_admin">02d6e7c93f814f7c87358a1dc04b285c</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

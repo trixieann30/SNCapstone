@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="f4ab92fa1351436193c745d1a2c56e67" label="AI Configuration" name="x_2319800_deskma_0_ai_config" type="collection">
+        <element default="true" label="Active" name="active" type="boolean"/>
+        <element label="Description" max_length="1000" name="description" type="string"/>
+        <element label="API Endpoint" max_length="500" name="api_endpoint" type="string"/>
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element label="Temperature" name="temperature" type="decimal"/>
+        <element label="Model Name" max_length="200" name="model_name" type="string"/>
+        <element label="Max Tokens" name="max_tokens" type="integer"/>
+    </element>
+</database>

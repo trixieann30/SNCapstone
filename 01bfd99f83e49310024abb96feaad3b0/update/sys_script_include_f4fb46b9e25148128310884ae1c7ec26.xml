@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_2319800_deskma_0.DeskMateAIService</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Main AI orchestration service for DeskMate. Classifies incidents, suggests assignment groups, and drafts resolution notes via external AI API.</description>
+        <mobile_callable>false</mobile_callable>
+        <name>DeskMateAIService</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var DeskMateAIService = Class.create();
+DeskMateAIService.prototype = {
+    initialize: function () {
+        this.utils = new DeskMateUtils();
+    },
+
+    getActiveConfig: function () {
+        var gr = new GlideRecord('x_2319800_deskma_0_ai_config');
+        gr.addQuery('active', true);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) {
+            return gr;
+        }
+        this.utils.logError('No active AI configuration found');
+        return null;
+    },
+
+    classifyIncident: function (incidentGr) {
+        var config = this.getActiveConfig();
+        if (!config) return null;
+
+        var shortDesc = incidentGr.getValue('short_description') || '';
+        var description = incidentGr.getValue('description') || '';
+
+        var prompt = 'Classify the following IT incident into the most appropriate category.\n\n' +
+            'Short Description: ' + shortDesc + '\n' +
+            'Description: ' + description + '\n\n' +
+            'Respond with only the category name.';
+
+        var response = this._callAIAPI(prompt, config);
+        if (response) {
+            var suggestion = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+            suggestion.initialize();
+            suggestion.setValue('incident', incidentGr.getUniqueValue());
+            suggestion.setValue('suggestion_type', 'category');
+            suggestion.setValue('suggested_category', this.utils.truncateText(response, 255));
+            suggestion.setValue('confidence_score', 0.8);
+            suggestion.setValue('status', 'pending');
+            suggestion.insert();
+            this.utils.logInfo('Created category suggestion for incident ' + incidentGr.getValue('number'));
+            return suggestion;
+        }
+        return null;
+    },
+
+    suggestAssignmentGroup: function (incidentGr) {
+        var config = this.getActiveConfig();
+        if (!config) return null;
+
+        var shortDesc = incidentGr.getValue('short_description') || '';
+        var description = incidentGr.getValue('description') || '';
+        var category = incidentGr.getValue('category') || '';
+
+        var prompt = 'Based on the following IT incident, suggest the most appropriate assignment group name.\n\n' +
+            'Short Description: ' + shortDesc + '\n' +
+            'Description: ' + description + '\n' +
+            'Category: ' + category + '\n\n' +
+            'Respond with only the assignment group name.';
+
+        var response = this._callAIAPI(prompt, config);
+        if (response) {
+            var groupGr = new GlideRecord('sys_user_group');
+            groupGr.addQuery('name', response.trim());
+            groupGr.setLimit(1);
+            groupGr.query();
+
+            var suggestion = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+            suggestion.initialize();
+            suggestion.setValue('incident', incidentGr.getUniqueValue());
+            suggestion.setValue('suggestion_type', 'assignment_group');
+            if (groupGr.next()) {
+                suggestion.setValue('suggested_assignment_group', groupGr.getUniqueValue());
+            }
+            suggestion.setValue('confidence_score', 0.75);
+            suggestion.setValue('status', 'pending');
+            suggestion.insert();
+            this.utils.logInfo('Created assignment group suggestion for incident ' + incidentGr.getValue('number'));
+            return suggestion;
+        }
+        return null;
+    },
+
+    draftResolutionNotes: function (incidentGr) {
+        var config = this.getActiveConfig();
+        if (!config) return null;
+
+        var shortDesc = incidentGr.getValue('short_description') || '';
+        var description = incidentGr.getValue('description') || '';
+
+        // Gather recent comments and work notes
+        var comments = [];
+        var journalGr = new GlideRecord('sys_journal_field');
+        journalGr.addQuery('element_id', incidentGr.getUniqueValue());
+        journalGr.addQuery('name', 'incident');
+        journalGr.orderByDesc('sys_created_on');
+        journalGr.setLimit(10);
+        journalGr.query();
+        while (journalGr.next()) {
+            comments.push(journalGr.getValue('value'));
+        }
+
+        var prompt = 'Draft resolution notes for the following IT incident based on the context provided.\n\n' +
+            'Short Description: ' + shortDesc + '\n' +
+            'Description: ' + description + '\n';
+
+        if (comments.length > 0) {
+            prompt += 'Comments/Work Notes:\n' + comments.join('\n') + '\n';
+        }
+
+        prompt += '\nProvide clear, professional resolution notes summarizing what was done to resolve the issue.';
+
+        var response = this._callAIAPI(prompt, config);
+        if (response) {
+            var suggestion = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+            suggestion.initialize();
+            suggestion.setValue('incident', incidentGr.getUniqueValue());
+            suggestion.setValue('suggestion_type', 'resolution_notes');
+            suggestion.setValue('suggested_resolution_notes', this.utils.truncateText(response, 4000));
+            suggestion.setValue('confidence_score', 0.7);
+            suggestion.setValue('status', 'pending');
+            suggestion.insert();
+            this.utils.logInfo('Created resolution notes suggestion for incident ' + incidentGr.getValue('number'));
+            return suggestion;
+        }
+        return null;
+    },
+
+    _callAIAPI: function (prompt, config) {
+        try {
+            var rm = new sn_ws.RESTMessageV2('DeskMate AI API', 'Generate Completion');
+            rm.setStringParameterNoEscape('api_endpoint', config.getValue('api_endpoint'));
+            rm.setStringParameterNoEscape('api_key', gs.getProperty('x_2319800_deskma_0.ai.api_key', ''));
+            rm.setStringParameterNoEscape('model', config.getValue('model_name') || 'gpt-4');
+
+            // JSON-escape the prompt so it is safe inside the request body template
+            var escapedPrompt = prompt
+                .replace(/\\/g, '\\\\')
+                .replace(/"/g, '\\"')
+                .replace(/\n/g, '\\n')
+                .replace(/\r/g, '\\r')
+                .replace(/\t/g, '\\t');
+            rm.setStringParameterNoEscape('prompt', escapedPrompt);
+
+            rm.setStringParameterNoEscape('temperature', config.getValue('temperature') || '0.7');
+            rm.setStringParameterNoEscape('max_tokens', config.getValue('max_tokens') || '1024');
+            rm.setHttpTimeout(30000);
+
+            var response = rm.execute();
+            var statusCode = response.getStatusCode();
+            var body = response.getBody();
+
+            if (statusCode >= 200 && statusCode < 300) {
+                var parsed = JSON.parse(body);
+                // OpenAI-compatible response format
+                if (parsed.choices && parsed.choices.length > 0) {
+                    return parsed.choices[0].message.content.trim();
+                }
+                this.utils.logError('Unexpected AI API response format: ' + body);
+                return null;
+            }
+            this.utils.logError('AI API error (HTTP ' + statusCode + '): ' + body);
+            return null;
+        } catch (ex) {
+            this.utils.logError('AI API exception: ' + ex.getMessage());
+            return null;
+        }
+    },
+
+    type: 'DeskMateAIService',
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 10:32:30</sys_created_on>
+        <sys_id>f4fb46b9e25148128310884ae1c7ec26</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DeskMateAIService</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>sys_script_include_f4fb46b9e25148128310884ae1c7ec26</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 10:32:30</sys_updated_on>
+    </sys_script_include>
+</record_update>

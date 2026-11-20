@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="AI Configuration" section_id="ac15d881a64b41799ab372ec8586d4bd" sys_domain="global" table="x_2319800_deskma_0_ai_config" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>b7d94825ba594f348f8d44f8205134ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>8fb0729ececf4fbe8be4f3c4be9cc097</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>model_name</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>9a6a5832370742d7a8373d5e4e40c40b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>temperature</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>6b88def3fe96456ca565712d3298ae3d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>c4d047fc924146d4b355d52d6f12377c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>cb48023b0e2b432da95db462ea8c0ffd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>max_tokens</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>8a490ce893dd41679aa4a441cf60f060</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>791f421be6c74fa5bc5ee0a915df48d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>api_endpoint</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>d6f9ef2ddad448258193eacaeb749d5b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:32:31</sys_created_on>
+            <sys_id>12a4c11ba97647a9b2f9cbdf9078a161</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="AI Configuration" display_value="AI Configuration" name="x_2319800_deskma_0_ai_config" sys_domain="global" view="Default view">ac15d881a64b41799ab372ec8586d4bd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:32:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>AI Configuration</caption>
+            <header>false</header>
+            <name>x_2319800_deskma_0_ai_config</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-11-20 10:26:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ac15d881a64b41799ab372ec8586d4bd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_2319800_deskma_0_ai_config</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+            <sys_update_name>sys_ui_section_ac15d881a64b41799ab372ec8586d4bd</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-11-20 10:26:50</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

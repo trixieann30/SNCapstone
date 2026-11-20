@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Full access to all DeskMate tables and configuration</description>
+        <elevated_privilege>false</elevated_privilege>
+        <federated_id/>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_2319800_deskma_0.deskmate_admin</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>deskmate_admin</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 10:26:51</sys_created_on>
+        <sys_id>02d6e7c93f814f7c87358a1dc04b285c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2319800_deskma_0.deskmate_admin</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>sys_user_role_02d6e7c93f814f7c87358a1dc04b285c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 10:26:51</sys_updated_on>
+    </sys_user_role>
+</record_update>
