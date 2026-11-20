@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>PUT</http_method>
+        <name>Accept Suggestion</name>
+        <operation_script><![CDATA[
+(function process(request, response) {
+    var suggestionSysId = request.pathParams.suggestion_sys_id;
+    if (!suggestionSysId) {
+        response.setStatus(400);
+        response.setBody({ error: 'suggestion_sys_id is required' });
+        return;
+    }
+
+    var gr = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+    if (!gr.get(suggestionSysId)) {
+        response.setStatus(404);
+        response.setBody({ error: 'Suggestion not found' });
+        return;
+    }
+
+    gr.setValue('status', 'accepted');
+    gr.setValue('processed_at', new GlideDateTime().toString());
+    gr.update();
+
+    var incidentGr = new GlideRecord('incident');
+    if (incidentGr.get(gr.getValue('incident'))) {
+        var sugType = gr.getValue('suggestion_type');
+        if (sugType === 'category') {
+            incidentGr.setValue('category', gr.getValue('suggested_category'));
+        } else if (sugType === 'assignment_group') {
+            incidentGr.setValue('assignment_group', gr.getValue('suggested_assignment_group'));
+        } else if (sugType === 'resolution_notes') {
+            incidentGr.setValue('close_notes', gr.getValue('suggested_resolution_notes'));
+        }
+        incidentGr.update();
+    }
+
+    response.setStatus(200);
+    response.setBody({
+        result: {
+            sys_id: gr.getUniqueValue(),
+            status: 'accepted',
+            suggestion_type: gr.getValue('suggestion_type'),
+            message: 'Suggestion accepted and applied to incident'
+        }
+    });
+})(request, response)
+            ]]></operation_script>
+        <operation_uri>/api/x_2319800_deskma_0/deskmate_agent_api/suggestions/{suggestion_sys_id}/accept</operation_uri>
+        <produces>application/json</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/suggestions/{suggestion_sys_id}/accept</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description>Accept an AI suggestion and apply it to the incident</short_description>
+        <support_trailing_slash>false</support_trailing_slash>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 11:15:20</sys_created_on>
+        <sys_id>f255d561456247b3ae6df30449c35385</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Accept Suggestion</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>sys_ws_operation_f255d561456247b3ae6df30449c35385</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 11:15:20</sys_updated_on>
+        <web_service_definition display_value="DeskMate Agent API">0902e1e53f674f1eb7173432e620ee48</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

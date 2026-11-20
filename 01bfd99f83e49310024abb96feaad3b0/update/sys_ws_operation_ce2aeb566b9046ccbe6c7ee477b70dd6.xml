@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Get Suggestions</name>
+        <operation_script><![CDATA[
+(function process(request, response) {
+    var incidentSysId = request.pathParams.incident_sys_id;
+    if (!incidentSysId) {
+        response.setStatus(400);
+        response.setBody({ error: 'incident_sys_id is required' });
+        return;
+    }
+
+    var results = [];
+    var gr = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+    gr.addQuery('incident', incidentSysId);
+    gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    while (gr.next()) {
+        var suggestion = {
+            sys_id: gr.getUniqueValue(),
+            suggestion_type: gr.getValue('suggestion_type'),
+            suggested_category: gr.getValue('suggested_category') || '',
+            suggested_assignment_group: {
+                value: gr.getValue('suggested_assignment_group') || '',
+                display_value: gr.getDisplayValue('suggested_assignment_group') || ''
+            },
+            suggested_resolution_notes: gr.getValue('suggested_resolution_notes') || '',
+            knowledge_article: {
+                value: gr.getValue('knowledge_article') || '',
+                display_value: gr.getDisplayValue('knowledge_article') || ''
+            },
+            confidence_score: parseFloat(gr.getValue('confidence_score')) || 0,
+            status: gr.getValue('status') || 'pending',
+            agent_feedback: gr.getValue('agent_feedback') || '',
+            processed_at: gr.getValue('processed_at') || '',
+            sys_created_on: gr.getValue('sys_created_on') || ''
+        };
+
+        if (suggestion.knowledge_article.value) {
+            var kb = new GlideRecord('kb_knowledge');
+            if (kb.get(suggestion.knowledge_article.value)) {
+                suggestion.knowledge_article.number = kb.getValue('number') || '';
+            }
+        }
+
+        results.push(suggestion);
+    }
+
+    response.setStatus(200);
+    response.setBody({ result: results });
+})(request, response)
+            ]]></operation_script>
+        <operation_uri>/api/x_2319800_deskma_0/deskmate_agent_api/suggestions/{incident_sys_id}</operation_uri>
+        <produces>application/json</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/suggestions/{incident_sys_id}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description>Fetch all AI suggestions for an incident</short_description>
+        <support_trailing_slash>false</support_trailing_slash>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 11:15:20</sys_created_on>
+        <sys_id>ce2aeb566b9046ccbe6c7ee477b70dd6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Suggestions</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>sys_ws_operation_ce2aeb566b9046ccbe6c7ee477b70dd6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 11:15:20</sys_updated_on>
+        <web_service_definition display_value="DeskMate Agent API">0902e1e53f674f1eb7173432e620ee48</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
