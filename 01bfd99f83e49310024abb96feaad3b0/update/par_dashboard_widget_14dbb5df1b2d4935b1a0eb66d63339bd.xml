@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="INSERT_OR_UPDATE">
+        <canvas display_value="">93a326446ed0448085216c2a06f43fd8</canvas>
+        <component display_value="Donut">a2b0596cec6b9d49dd1ff9bf76b5084b</component>
+        <component_props>{"headerTitle":"Suggestion Acceptance Rate","dataSources":[{"sourceType":"table","tableOrViewName":"x_2319800_deskma_0_ai_suggestion","filterQuery":"","id":"ds_1"}],"groupBy":[{"groupBy":[{"dataSource":"ds_1","groupByField":"status","isChoice":true}],"maxNumberOfGroups":"ALL","sortBy":"value","sortByOrder":"desc"}],"metrics":[{"dataSource":"ds_1","aggregateFunction":"COUNT","axisId":"primary"}],"showLegend":true,"showDataLabels":true}</component_props>
+        <h>16</h>
+        <name/>
+        <required_translations/>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 11:32:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>14dbb5df1b2d4935b1a0eb66d63339bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>par_dashboard_widget_14dbb5df1b2d4935b1a0eb66d63339bd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 11:32:11</sys_updated_on>
+        <visualization/>
+        <w>24</w>
+        <widget_props/>
+        <x>0</x>
+        <y>3</y>
+    </par_dashboard_widget>
+</record_update>

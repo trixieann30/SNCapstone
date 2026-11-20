@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_2319800_deskma_0.DeskMateKnowledgeService</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Knowledge article retrieval and suggestion service for DeskMate. Searches published KB articles and creates AI suggestion records.</description>
+        <mobile_callable>false</mobile_callable>
+        <name>DeskMateKnowledgeService</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var DeskMateKnowledgeService = Class.create();
+DeskMateKnowledgeService.prototype = {
+    initialize: function () {
+        this.utils = new DeskMateUtils();
+    },
+
+    findRelevantArticles: function (incidentGr, maxResults) {
+        maxResults = maxResults || 5;
+        var shortDesc = incidentGr.getValue('short_description') || '';
+        var description = incidentGr.getValue('description') || '';
+
+        var keywords = this.utils.extractKeywords(shortDesc + ' ' + description);
+        if (keywords.length === 0) {
+            this.utils.logInfo('No keywords extracted from incident ' + incidentGr.getValue('number'));
+            return [];
+        }
+
+        var articles = [];
+        var gr = new GlideRecord('kb_knowledge');
+        gr.addQuery('workflow_state', 'published');
+
+        // Build OR condition for keyword matching across title and body
+        var qc = gr.addQuery('short_description', 'CONTAINS', keywords[0]);
+        qc.addOrCondition('text', 'CONTAINS', keywords[0]);
+        for (var i = 1; i < keywords.length && i < 10; i++) {
+            qc.addOrCondition('short_description', 'CONTAINS', keywords[i]);
+            qc.addOrCondition('text', 'CONTAINS', keywords[i]);
+        }
+
+        gr.setLimit(maxResults);
+        gr.query();
+
+        while (gr.next()) {
+            articles.push({
+                sys_id: gr.getUniqueValue(),
+                short_description: gr.getValue('short_description'),
+                number: gr.getValue('number'),
+                relevance: this._calculateRelevance(gr, keywords),
+            });
+        }
+
+        // Sort by relevance descending
+        articles.sort(function (a, b) {
+            return b.relevance - a.relevance;
+        });
+
+        this.utils.logInfo('Found ' + articles.length + ' relevant articles for incident ' + incidentGr.getValue('number'));
+        return articles;
+    },
+
+    createArticleSuggestion: function (incidentGr, articleSysId, confidenceScore) {
+        var suggestion = new GlideRecord('x_2319800_deskma_0_ai_suggestion');
+        suggestion.initialize();
+        suggestion.setValue('incident', incidentGr.getUniqueValue());
+        suggestion.setValue('suggestion_type', 'knowledge_article');
+        suggestion.setValue('knowledge_article', articleSysId);
+        suggestion.setValue('confidence_score', confidenceScore || 0.5);
+        suggestion.setValue('status', 'pending');
+        var sysId = suggestion.insert();
+        this.utils.logInfo('Created knowledge article suggestion for incident ' + incidentGr.getValue('number'));
+        return sysId;
+    },
+
+    _calculateRelevance: function (articleGr, keywords) {
+        var score = 0;
+        var title = (articleGr.getValue('short_description') || '').toLowerCase();
+        var text = (articleGr.getValue('text') || '').toLowerCase();
+        for (var i = 0; i < keywords.length; i++) {
+            if (title.indexOf(keywords[i]) !== -1) {
+                score += 2; // Title matches are worth more
+            }
+            if (text.indexOf(keywords[i]) !== -1) {
+                score += 1;
+            }
+        }
+        return score;
+    },
+
+    type: 'DeskMateKnowledgeService',
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 11:32:12</sys_created_on>
+        <sys_id>da34a82191464426adbada48cd057b05</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DeskMateKnowledgeService</sys_name>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>sys_script_include_da34a82191464426adbada48cd057b05</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 11:32:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

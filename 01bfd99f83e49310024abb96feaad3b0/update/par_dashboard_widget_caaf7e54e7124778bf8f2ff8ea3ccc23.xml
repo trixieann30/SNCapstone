@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="INSERT_OR_UPDATE">
+        <canvas display_value="">93a326446ed0448085216c2a06f43fd8</canvas>
+        <component display_value="">list-simple</component>
+        <component_props>{"listTitle":"Recent AI Suggestions","table":"x_2319800_deskma_0_ai_suggestion","query":"^ORDERBYDESCsys_created_on","columns":"incident,suggestion_type,status,suggested_category,suggested_assignment_group,confidence_score,sys_created_on","limit":20,"showBorder":true}</component_props>
+        <h>14</h>
+        <name/>
+        <required_translations/>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-20 11:32:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>caaf7e54e7124778bf8f2ff8ea3ccc23</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="DeskMate" source="x_2319800_deskma_0">01bfd99f83e49310024abb96feaad3b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DeskMate">01bfd99f83e49310024abb96feaad3b0</sys_scope>
+        <sys_update_name>par_dashboard_widget_caaf7e54e7124778bf8f2ff8ea3ccc23</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-20 11:32:11</sys_updated_on>
+        <visualization/>
+        <w>48</w>
+        <widget_props/>
+        <x>0</x>
+        <y>35</y>
+    </par_dashboard_widget>
+</record_update>
